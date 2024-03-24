@@ -1,0 +1,226 @@
+:root{
+    --light: #fafafa;
+    --dark: #1e1e1e;
+    --lightdark: #212121;
+    --gray: #434242;
+    --green: #1eb603;
+    --hovergreen: #159d03;
+    --orange: #f96b05;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    background-color: var(--gray);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+header nav{
+    background-color: var(--dark);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+header nav h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--orange);
+}
+
+header nav form{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+form input{
+    flex-grow: 1;
+}
+
+form input, button[type="submit"]{
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 10px 14px;
+    border-radius: 5px;
+}
+
+form button[type="submit"]{
+    background-color: var(--green);
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+form button[type="submit"]:hover, .recipe button:hover{
+    background-color: var(--hovergreen);
+}
+
+.recipe-container{
+    text-align: center;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
+    width: 80%;
+    margin: 10px auto;
+    padding: 20px;
+    place-items: center;
+} 
+
+.recipe{
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    color: var(--dark);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(78,73, 73, 0.1), -5px -5px 10px rgba(34, 34, 34, 0.5);
+    cursor: pointer;
+    max-width: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.recipe:hover{
+    transform: scale(1.02);
+}
+
+.recipe img{
+    height: 300px;
+}
+
+.recipe h3{
+    font-size: 1.1rem;
+    margin-block: 5px;
+}
+
+.recipe button{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 18px auto;
+    background-color: var(--green);
+    color: var(--light);
+    border:none; 
+}
+
+.recipe p{
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 5px 0;
+}
+
+.recipe-details{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background-color: var(--lightdark);
+    border-radius: 10px;
+    width: 40%;
+    height: 60%;
+    font-size: 1.1rem;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+}
+
+.recipe-details-content{
+    padding: 30px;
+}
+
+.recipeName{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.ingredientName, .recipeInstruction h3{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+    color: var(--green);
+}
+
+.ingredientList li{
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 1rem;
+}
+
+.recipeInstruction ol li{
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.ingredientList, .recipeInstruction{
+    margin-bottom: 20px;
+}
+
+.recipe-close-btn{
+    border: none;
+    font-size: 1.1rem;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: var(--light);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;  
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* adding custom scrollbar */
+.recipe-details::-webkit-scrollbar{
+    width: 10px;
+}
+
+.recipe-details::-webkit-scrollbar-thumb{
+    background: var(--orange);
+    border-radius: 1rem;
+    --webkit-border-radius: 1rem;
+}
+
+/* adding custom scrollbar to body */
+body::-webkit-scrollbar{
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--light);
+    border-radius: 1rem;
+    --webkit-border-radius: 1rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: var(--dark);
+}
+
+/* Media Query */
+@media screen and (max-width:600px){
+    header nav{
+        flex-direction: column;
+    }
+    header nav form{
+        width: 80%;
+        margin-top: 15px;
+    }
+}
